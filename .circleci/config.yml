@@ -1,5 +1,5 @@
 image_config: &image_config
-  IMAGE_NAME: AppEnginePythonAndNode
+  IMAGE_NAME: appenginepythonandnode
   IMAGE_TAG: py2.7.12sdk1.9.69
 
   # NOTE: if you're modifying this config.yml file manually
