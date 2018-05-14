@@ -37,7 +37,8 @@ jobs:
 
       - run: bash scripts/generate.sh > Dockerfile
       - run: echo "RUN npm install --global yarn" >> Dockerfile
-      - run: echo "RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py" >> Dockerfile
+      - run: echo "RUN apt-get update && apt-get install -y python-pip" >> Dockerfile
+      # - run: echo "RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py" >> Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
