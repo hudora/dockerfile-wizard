@@ -1,6 +1,6 @@
 image_config: &image_config
   IMAGE_NAME: appenginepythonandnode
-  IMAGE_TAG: py2.7.12sdk1.9.69
+  IMAGE_TAG: py2.7.12sdk1.9.69b
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -36,6 +36,8 @@ jobs:
       - checkout
 
       - run: bash scripts/generate.sh > Dockerfile
+      - run: echo "RUN npm install --global yarn" >> Dockerfile
+      - run: echo "RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py" >> Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
